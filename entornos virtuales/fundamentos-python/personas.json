@@ -1,0 +1,17 @@
+{
+  "1": {
+    "ancho": 169,
+    "alto": 214,
+    "fecha_registro": "Sat Mar 14 23:21:59 2026"
+  },
+  "perro": {
+    "ancho": 131,
+    "alto": 160,
+    "fecha_registro": "Sat Mar 14 23:22:30 2026"
+  },
+  "shark": {
+    "ancho": 86,
+    "alto": 107,
+    "fecha_registro": "Mon Apr 13 17:42:11 2026"
+  }
+}

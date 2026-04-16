@@ -1,0 +1,105 @@
+import cv2
+import numpy as np
+
+def detectar_formas(contorno):
+    """Identifica la forma basada en el contorno"""
+    peri = cv2.arcLength(contorno, True)
+    aproximacion = cv2.approxPolyDP(contorno, 0.04 * peri, True)
+    
+    # Número de vértices
+    vertices = len(aproximacion)
+    
+    if vertices == 3:
+        return "Triángulo"
+    elif vertices == 4:
+        # Verificar si es cuadrado o rectángulo
+        (x, y, w, h) = cv2.boundingRect(aproximacion)
+        aspect_ratio = w / float(h)
+        
+        if 0.95 <= aspect_ratio <= 1.05:
+            return "Cuadrado"
+        else:
+            return "Rectángulo"
+    elif vertices > 6:
+        # Podría ser un círculo
+        area = cv2.contourArea(contorno)
+        (x, y), radio = cv2.minEnclosingCircle(contorno)
+        area_circulo = np.pi * radio ** 2
+        
+        # Si el área del contorno es similar al área del círculo
+        if area_circulo > 0 and abs(area - area_circulo) / area_circulo < 0.3:
+            return "Círculo"
+            
+    return "Desconocido"
+
+# Captura de video
+cap = cv2.VideoCapture(0)
+
+# Conjunto para guardar las posiciones aproximadas de los objetos ya vistos
+objetos_conocidos = set()
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+    
+    # Diccionario para contar los objetos en el frame actual
+    conteo_actual = {"Triángulo": 0, "Cuadrado": 0, "Rectángulo": 0, "Círculo": 0}
+    
+    # Preprocesamiento
+    gris = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    desenfoque = cv2.GaussianBlur(gris, (5, 5), 0)
+    bordes = cv2.Canny(desenfoque, 50, 150)
+    
+    # Encontrar contornos
+    contornos, _ = cv2.findContours(bordes, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    
+    for contorno in contornos:
+        area = cv2.contourArea(contorno)
+        if area < 500:
+            continue
+        
+        forma = detectar_formas(contorno)
+        
+        # Sumar al contador si es una forma conocida
+        if forma in conteo_actual:
+            conteo_actual[forma] += 1
+            
+        cv2.drawContours(frame, [contorno], -1, (0, 255, 0), 2)
+        
+        M = cv2.moments(contorno)
+        if M["m00"] != 0:
+            cX = int(M["m10"] / M["m00"])
+            cY = int(M["m01"] / M["m00"])
+            
+            # Crear una "cuadrícula" dividiendo entre 50 para la posición aproximada
+            pos_aprox = (cX // 50, cY // 50)
+            
+            # Si esta posición aproximada no está en nuestro registro, es un objeto nuevo
+            if pos_aprox not in objetos_conocidos:
+                objetos_conocidos.add(pos_aprox)
+                print('\a')  # Emite el beep en la terminal
+                print(f"¡Nuevo objeto detectado! Forma: {forma}")
+            
+            # Etiqueta sobre el objeto
+            cv2.putText(frame, forma, (cX - 20, cY - 20),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+    
+    # Crear el texto del HUD (Heads-Up Display)
+    texto_hud = f"Triangulos: {conteo_actual['Triángulo']} | Cuadrados: {conteo_actual['Cuadrado']} | Circulos: {conteo_actual['Círculo']}"
+    
+    # Dibujar un fondo negro semitransparente para el texto (opcional, mejora la lectura)
+    cv2.rectangle(frame, (5, 10), (700, 50), (0, 0, 0), -1)
+    
+    # Mostrar el contador en pantalla
+    cv2.putText(frame, texto_hud, (15, 35),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+    
+    cv2.imshow('Detector de Formas', frame)
+    cv2.imshow('Bordes Canny', bordes)
+    
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()

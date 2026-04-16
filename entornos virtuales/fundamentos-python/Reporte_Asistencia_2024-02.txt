@@ -1,0 +1,7 @@
+REPORTE MENSUAL DE ASISTENCIA - 2024-02
+=============================================
+Total registros del mes: 168
+Tasa de puntualidad: 80.4%
+
+EMPLEADOS CON PROBLEMAS DE ASISTENCIA (>3 faltas):
+- Ninguno detectado.

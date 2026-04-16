@@ -1,0 +1,501 @@
+ID_Encuesta,Fecha,Servicio,Puntuación_General,Atención,Rapidez,Precio,Recomendaría
+ENC-00001,2024-04-05,Ventas,8,5,5,3,Sí
+ENC-00002,2024-05-09,Atención al Cliente,10,5,5,4,Sí
+ENC-00003,2024-02-17,Delivery,4,4,2,1,Sí
+ENC-00004,2024-05-06,Soporte Técnico,5,2,2,4,No
+ENC-00005,2024-02-12,Ventas,2,3,1,1,No
+ENC-00006,2024-01-30,Ventas,7,4,2,4,Sí
+ENC-00007,2024-04-18,Soporte Técnico,5,3,5,4,No
+ENC-00008,2024-05-19,Ventas,5,3,2,3,No
+ENC-00009,2024-01-02,Post-Venta,8,4,2,5,Sí
+ENC-00010,2024-04-25,Atención al Cliente,4,2,4,3,No
+ENC-00011,2024-03-19,Delivery,7,3,3,5,Sí
+ENC-00012,2024-04-01,Delivery,6,1,3,4,No
+ENC-00013,2024-01-10,Delivery,8,3,4,5,Sí
+ENC-00014,2024-02-28,Soporte Técnico,1,1,2,1,Sí
+ENC-00015,2024-03-10,Delivery,5,1,3,4,No
+ENC-00016,2024-01-22,Post-Venta,4,1,4,1,No
+ENC-00017,2024-04-23,Delivery,7,3,3,5,Sí
+ENC-00018,2024-05-28,Delivery,6,4,4,3,No
+ENC-00019,2024-01-04,Ventas,9,4,5,5,Sí
+ENC-00020,2024-01-15,Atención al Cliente,5,3,3,2,No
+ENC-00021,2024-06-05,Post-Venta,8,5,4,4,Sí
+ENC-00022,2024-02-27,Atención al Cliente,2,1,1,2,No
+ENC-00023,2024-04-03,Ventas,7,2,5,2,Sí
+ENC-00024,2024-03-23,Soporte Técnico,6,3,3,4,No
+ENC-00025,2024-03-22,Atención al Cliente,4,5,2,1,No
+ENC-00026,2024-01-13,Post-Venta,4,1,3,2,No
+ENC-00027,2024-03-02,Ventas,6,1,5,2,No
+ENC-00028,2024-02-12,Delivery,2,1,2,3,Sí
+ENC-00029,2024-03-19,Delivery,8,3,5,5,Sí
+ENC-00030,2024-02-16,Delivery,5,4,4,2,No
+ENC-00031,2024-06-16,Post-Venta,5,3,1,4,No
+ENC-00032,2024-03-24,Ventas,4,1,2,4,No
+ENC-00033,2024-02-14,Delivery,6,1,5,1,No
+ENC-00034,2024-04-25,Atención al Cliente,6,3,3,2,Sí
+ENC-00035,2024-06-10,Post-Venta,10,3,5,5,Sí
+ENC-00036,2024-06-21,Post-Venta,4,2,5,1,No
+ENC-00037,2024-06-10,Soporte Técnico,4,5,2,1,No
+ENC-00038,2024-03-26,Soporte Técnico,10,4,5,5,Sí
+ENC-00039,2024-02-14,Ventas,6,1,5,5,No
+ENC-00040,2024-06-10,Ventas,9,5,4,4,Sí
+ENC-00041,2024-01-03,Soporte Técnico,7,5,4,2,Sí
+ENC-00042,2024-04-17,Delivery,5,3,3,2,Sí
+ENC-00043,2024-03-20,Post-Venta,4,1,1,2,No
+ENC-00044,2024-01-29,Post-Venta,6,1,5,4,No
+ENC-00045,2024-01-01,Delivery,6,1,5,4,No
+ENC-00046,2024-06-06,Ventas,7,3,3,5,Sí
+ENC-00047,2024-06-14,Soporte Técnico,8,2,4,5,Sí
+ENC-00048,2024-03-29,Delivery,6,2,2,5,Sí
+ENC-00049,2024-05-16,Atención al Cliente,2,1,3,1,No
+ENC-00050,2024-04-01,Ventas,6,2,5,2,Sí
+ENC-00051,2024-03-29,Soporte Técnico,4,1,2,2,No
+ENC-00052,2024-01-19,Ventas,7,5,1,5,Sí
+ENC-00053,2024-04-12,Post-Venta,5,5,3,1,No
+ENC-00054,2024-05-27,Ventas,6,3,4,3,Sí
+ENC-00055,2024-05-24,Post-Venta,7,2,4,5,Sí
+ENC-00056,2024-06-02,Soporte Técnico,5,5,1,3,No
+ENC-00057,2024-02-16,Soporte Técnico,5,1,5,4,No
+ENC-00058,2024-06-21,Ventas,4,1,2,4,No
+ENC-00059,2024-04-17,Soporte Técnico,9,3,5,4,Sí
+ENC-00060,2024-01-21,Ventas,3,1,1,3,No
+ENC-00061,2024-02-08,Soporte Técnico,7,5,3,4,Sí
+ENC-00062,2024-03-06,Delivery,5,2,5,2,Sí
+ENC-00063,2024-01-29,Post-Venta,5,3,3,2,No
+ENC-00064,2024-05-16,Delivery,5,4,2,2,No
+ENC-00065,2024-01-13,Soporte Técnico,6,5,1,5,No
+ENC-00066,2024-06-27,Post-Venta,6,2,3,4,Sí
+ENC-00067,2024-02-23,Soporte Técnico,5,5,1,1,No
+ENC-00068,2024-04-20,Delivery,5,1,1,5,No
+ENC-00069,2024-01-06,Atención al Cliente,2,2,1,3,No
+ENC-00070,2024-04-21,Ventas,7,1,4,5,Sí
+ENC-00071,2024-05-26,Soporte Técnico,5,4,1,4,No
+ENC-00072,2024-03-15,Ventas,4,4,1,3,No
+ENC-00073,2024-02-25,Atención al Cliente,4,2,5,1,No
+ENC-00074,2024-02-14,Atención al Cliente,5,3,5,2,No
+ENC-00075,2024-06-16,Delivery,4,4,1,1,No
+ENC-00076,2024-01-23,Post-Venta,5,1,4,4,Sí
+ENC-00077,2024-05-03,Delivery,5,1,3,4,No
+ENC-00078,2024-03-13,Atención al Cliente,4,2,3,1,No
+ENC-00079,2024-02-27,Ventas,2,2,1,5,No
+ENC-00080,2024-01-15,Ventas,2,3,1,1,No
+ENC-00081,2024-01-26,Ventas,2,2,1,2,No
+ENC-00082,2024-04-30,Post-Venta,5,2,3,5,No
+ENC-00083,2024-01-10,Ventas,7,1,5,5,Sí
+ENC-00084,2024-05-07,Delivery,4,2,4,3,No
+ENC-00085,2024-04-14,Atención al Cliente,6,3,5,2,No
+ENC-00086,2024-06-08,Ventas,5,3,1,3,Sí
+ENC-00087,2024-02-26,Delivery,4,1,5,2,Sí
+ENC-00088,2024-01-30,Post-Venta,6,1,5,4,No
+ENC-00089,2024-05-04,Delivery,6,2,5,2,No
+ENC-00090,2024-03-12,Soporte Técnico,8,4,5,5,Sí
+ENC-00091,2024-01-08,Soporte Técnico,3,2,2,3,No
+ENC-00092,2024-03-11,Post-Venta,3,1,4,1,No
+ENC-00093,2024-01-04,Post-Venta,5,1,3,4,No
+ENC-00094,2024-01-27,Delivery,9,5,5,3,Sí
+ENC-00095,2024-01-15,Soporte Técnico,2,1,2,1,No
+ENC-00096,2024-03-10,Soporte Técnico,7,1,4,5,Sí
+ENC-00097,2024-01-04,Delivery,7,5,3,4,Sí
+ENC-00098,2024-05-29,Post-Venta,5,1,5,4,Sí
+ENC-00099,2024-03-06,Post-Venta,8,5,5,4,Sí
+ENC-00100,2024-03-06,Atención al Cliente,3,2,2,3,No
+ENC-00101,2024-04-20,Soporte Técnico,7,4,3,5,Sí
+ENC-00102,2024-04-25,Soporte Técnico,7,5,2,5,Sí
+ENC-00103,2024-04-21,Ventas,7,2,1,5,Sí
+ENC-00104,2024-04-05,Soporte Técnico,4,1,2,4,No
+ENC-00105,2024-06-05,Atención al Cliente,4,4,1,3,No
+ENC-00106,2024-01-27,Soporte Técnico,8,4,5,5,Sí
+ENC-00107,2024-04-25,Ventas,6,3,5,1,No
+ENC-00108,2024-04-19,Soporte Técnico,5,2,3,3,No
+ENC-00109,2024-03-07,Ventas,8,4,2,5,Sí
+ENC-00110,2024-04-12,Ventas,4,1,2,2,Sí
+ENC-00111,2024-01-31,Atención al Cliente,8,5,3,4,Sí
+ENC-00112,2024-03-19,Soporte Técnico,5,4,1,4,No
+ENC-00113,2024-02-03,Delivery,5,1,1,5,Sí
+ENC-00114,2024-01-09,Ventas,6,5,2,2,Sí
+ENC-00115,2024-02-01,Delivery,7,2,4,5,Sí
+ENC-00116,2024-05-29,Delivery,6,5,1,5,No
+ENC-00117,2024-04-20,Ventas,8,2,3,5,Sí
+ENC-00118,2024-06-01,Post-Venta,5,5,1,3,No
+ENC-00119,2024-03-10,Post-Venta,3,5,1,1,No
+ENC-00120,2024-03-11,Post-Venta,6,4,1,4,No
+ENC-00121,2024-06-07,Ventas,4,3,2,3,No
+ENC-00122,2024-03-16,Delivery,7,3,5,3,Sí
+ENC-00123,2024-02-14,Post-Venta,2,3,1,2,No
+ENC-00124,2024-06-25,Delivery,2,1,2,2,Sí
+ENC-00125,2024-01-18,Soporte Técnico,5,2,3,2,Sí
+ENC-00126,2024-03-01,Soporte Técnico,8,4,5,4,Sí
+ENC-00127,2024-03-02,Ventas,8,3,5,4,Sí
+ENC-00128,2024-05-16,Ventas,6,5,1,5,Sí
+ENC-00129,2024-06-11,Delivery,6,5,3,2,No
+ENC-00130,2024-06-22,Ventas,5,2,4,4,Sí
+ENC-00131,2024-01-17,Delivery,5,1,3,3,Sí
+ENC-00132,2024-03-02,Post-Venta,7,2,4,5,Sí
+ENC-00133,2024-03-16,Post-Venta,9,3,5,4,Sí
+ENC-00134,2024-01-31,Ventas,7,1,4,3,Sí
+ENC-00135,2024-04-17,Atención al Cliente,8,5,3,4,Sí
+ENC-00136,2024-04-14,Delivery,7,4,3,2,Sí
+ENC-00137,2024-06-09,Atención al Cliente,5,5,2,3,No
+ENC-00138,2024-02-26,Soporte Técnico,2,1,2,2,No
+ENC-00139,2024-06-20,Ventas,3,2,5,1,No
+ENC-00140,2024-02-29,Ventas,4,3,4,1,No
+ENC-00141,2024-06-18,Soporte Técnico,9,4,4,5,Sí
+ENC-00142,2024-06-18,Atención al Cliente,7,5,4,1,Sí
+ENC-00143,2024-02-15,Atención al Cliente,4,1,3,4,Sí
+ENC-00144,2024-03-26,Soporte Técnico,7,5,5,2,Sí
+ENC-00145,2024-05-16,Delivery,4,4,2,1,No
+ENC-00146,2024-03-13,Delivery,6,1,5,4,No
+ENC-00147,2024-03-12,Soporte Técnico,1,2,1,3,Sí
+ENC-00148,2024-01-16,Atención al Cliente,7,5,4,2,Sí
+ENC-00149,2024-04-28,Soporte Técnico,7,2,4,5,Sí
+ENC-00150,2024-04-03,Delivery,8,5,2,4,Sí
+ENC-00151,2024-03-02,Ventas,6,2,4,2,No
+ENC-00152,2024-03-05,Ventas,7,2,5,3,Sí
+ENC-00153,2024-01-30,Atención al Cliente,6,2,3,3,No
+ENC-00154,2024-04-03,Post-Venta,7,4,1,5,Sí
+ENC-00155,2024-05-12,Soporte Técnico,5,3,3,1,Sí
+ENC-00156,2024-03-15,Delivery,8,4,5,3,Sí
+ENC-00157,2024-02-24,Atención al Cliente,7,5,3,4,Sí
+ENC-00158,2024-04-03,Soporte Técnico,7,2,4,4,Sí
+ENC-00159,2024-04-16,Ventas,4,1,2,4,No
+ENC-00160,2024-06-15,Ventas,4,2,3,2,No
+ENC-00161,2024-06-15,Ventas,7,1,5,4,Sí
+ENC-00162,2024-03-09,Atención al Cliente,7,4,3,3,Sí
+ENC-00163,2024-01-14,Post-Venta,4,4,1,3,No
+ENC-00164,2024-01-16,Soporte Técnico,8,3,4,5,Sí
+ENC-00165,2024-04-30,Post-Venta,4,3,1,5,No
+ENC-00166,2024-01-05,Atención al Cliente,6,4,2,3,No
+ENC-00167,2024-05-30,Delivery,5,5,1,2,No
+ENC-00168,2024-06-22,Atención al Cliente,8,5,5,1,Sí
+ENC-00169,2024-03-28,Atención al Cliente,6,1,4,5,No
+ENC-00170,2024-02-03,Soporte Técnico,7,5,2,3,Sí
+ENC-00171,2024-06-13,Post-Venta,7,3,4,2,Sí
+ENC-00172,2024-02-13,Ventas,5,5,1,3,No
+ENC-00173,2024-06-20,Delivery,7,5,4,1,Sí
+ENC-00174,2024-05-26,Soporte Técnico,6,5,4,2,No
+ENC-00175,2024-04-30,Ventas,5,3,3,4,No
+ENC-00176,2024-06-26,Post-Venta,2,1,3,1,No
+ENC-00177,2024-04-12,Post-Venta,4,3,3,1,No
+ENC-00178,2024-06-17,Ventas,7,4,3,4,Sí
+ENC-00179,2024-04-14,Delivery,5,2,4,3,No
+ENC-00180,2024-02-09,Atención al Cliente,6,4,5,1,No
+ENC-00181,2024-05-25,Delivery,5,2,2,4,No
+ENC-00182,2024-05-11,Post-Venta,3,1,4,1,No
+ENC-00183,2024-01-04,Soporte Técnico,8,3,4,5,Sí
+ENC-00184,2024-02-04,Soporte Técnico,9,5,5,4,Sí
+ENC-00185,2024-02-24,Delivery,7,4,4,2,Sí
+ENC-00186,2024-04-22,Atención al Cliente,6,4,5,1,No
+ENC-00187,2024-06-06,Post-Venta,5,3,1,3,No
+ENC-00188,2024-04-24,Post-Venta,6,4,3,2,No
+ENC-00189,2024-04-19,Delivery,4,1,1,5,No
+ENC-00190,2024-05-18,Post-Venta,5,4,2,2,Sí
+ENC-00191,2024-02-09,Soporte Técnico,5,1,2,5,No
+ENC-00192,2024-04-25,Soporte Técnico,4,4,1,3,Sí
+ENC-00193,2024-03-04,Ventas,9,2,5,4,Sí
+ENC-00194,2024-04-08,Delivery,6,5,3,4,No
+ENC-00195,2024-05-06,Atención al Cliente,2,1,2,3,No
+ENC-00196,2024-02-25,Soporte Técnico,5,3,3,2,No
+ENC-00197,2024-02-04,Soporte Técnico,6,4,1,4,Sí
+ENC-00198,2024-06-16,Post-Venta,9,2,4,5,Sí
+ENC-00199,2024-06-08,Ventas,6,1,3,5,Sí
+ENC-00200,2024-04-10,Post-Venta,7,4,5,2,Sí
+ENC-00201,2024-01-04,Post-Venta,4,3,3,1,No
+ENC-00202,2024-06-05,Atención al Cliente,5,3,3,4,No
+ENC-00203,2024-06-26,Ventas,4,2,2,5,No
+ENC-00204,2024-05-17,Soporte Técnico,3,2,1,4,Sí
+ENC-00205,2024-04-29,Post-Venta,9,4,5,4,Sí
+ENC-00206,2024-06-19,Soporte Técnico,8,1,4,5,Sí
+ENC-00207,2024-06-12,Soporte Técnico,7,3,4,4,Sí
+ENC-00208,2024-04-22,Ventas,5,5,2,1,No
+ENC-00209,2024-06-18,Soporte Técnico,3,2,3,1,No
+ENC-00210,2024-05-18,Atención al Cliente,6,4,4,3,No
+ENC-00211,2024-03-26,Ventas,6,4,3,2,Sí
+ENC-00212,2024-01-26,Ventas,5,3,4,1,No
+ENC-00213,2024-05-08,Ventas,7,2,4,5,Sí
+ENC-00214,2024-06-10,Delivery,8,4,4,3,Sí
+ENC-00215,2024-05-02,Post-Venta,2,4,2,2,Sí
+ENC-00216,2024-05-23,Atención al Cliente,5,2,4,3,No
+ENC-00217,2024-05-10,Atención al Cliente,9,3,5,4,Sí
+ENC-00218,2024-05-09,Atención al Cliente,7,2,5,3,Sí
+ENC-00219,2024-03-01,Atención al Cliente,4,3,3,1,No
+ENC-00220,2024-01-24,Soporte Técnico,6,1,5,4,No
+ENC-00221,2024-03-04,Ventas,4,3,3,2,No
+ENC-00222,2024-02-28,Post-Venta,3,3,2,4,No
+ENC-00223,2024-01-27,Post-Venta,6,5,4,1,No
+ENC-00224,2024-01-20,Ventas,7,3,5,4,Sí
+ENC-00225,2024-05-28,Post-Venta,10,5,5,5,Sí
+ENC-00226,2024-03-30,Ventas,5,4,3,3,No
+ENC-00227,2024-05-03,Soporte Técnico,3,1,1,4,Sí
+ENC-00228,2024-05-30,Atención al Cliente,3,1,3,1,No
+ENC-00229,2024-06-21,Delivery,6,1,3,3,No
+ENC-00230,2024-01-18,Post-Venta,6,3,5,3,No
+ENC-00231,2024-05-06,Atención al Cliente,4,3,2,1,No
+ENC-00232,2024-02-26,Ventas,6,3,3,2,No
+ENC-00233,2024-01-19,Delivery,2,3,1,2,Sí
+ENC-00234,2024-02-05,Soporte Técnico,4,5,1,3,No
+ENC-00235,2024-02-13,Post-Venta,7,1,3,3,Sí
+ENC-00236,2024-06-03,Delivery,6,4,2,3,No
+ENC-00237,2024-04-26,Atención al Cliente,4,2,1,3,No
+ENC-00238,2024-03-04,Delivery,5,2,1,4,No
+ENC-00239,2024-06-22,Delivery,6,4,4,2,Sí
+ENC-00240,2024-05-01,Post-Venta,6,3,2,5,No
+ENC-00241,2024-05-13,Post-Venta,7,5,5,4,Sí
+ENC-00242,2024-06-10,Delivery,7,3,4,5,Sí
+ENC-00243,2024-03-28,Delivery,5,1,5,1,Sí
+ENC-00244,2024-03-15,Ventas,9,4,4,5,Sí
+ENC-00245,2024-04-15,Atención al Cliente,3,1,1,4,Sí
+ENC-00246,2024-03-12,Post-Venta,4,4,1,3,No
+ENC-00247,2024-01-24,Ventas,3,1,1,5,Sí
+ENC-00248,2024-02-27,Atención al Cliente,3,1,4,1,Sí
+ENC-00249,2024-01-13,Ventas,6,4,4,2,Sí
+ENC-00250,2024-04-08,Post-Venta,3,5,1,1,No
+ENC-00251,2024-03-01,Delivery,6,4,2,3,No
+ENC-00252,2024-04-23,Atención al Cliente,3,4,2,1,Sí
+ENC-00253,2024-05-20,Post-Venta,6,1,4,4,No
+ENC-00254,2024-06-23,Atención al Cliente,6,5,1,5,Sí
+ENC-00255,2024-02-07,Atención al Cliente,4,1,4,2,No
+ENC-00256,2024-05-21,Ventas,5,5,1,4,Sí
+ENC-00257,2024-02-17,Atención al Cliente,6,2,2,3,No
+ENC-00258,2024-06-08,Soporte Técnico,7,5,3,2,Sí
+ENC-00259,2024-02-22,Atención al Cliente,7,3,3,3,Sí
+ENC-00260,2024-03-17,Atención al Cliente,6,5,2,4,No
+ENC-00261,2024-01-12,Ventas,4,1,2,2,No
+ENC-00262,2024-03-17,Soporte Técnico,3,4,1,3,Sí
+ENC-00263,2024-04-02,Ventas,3,2,1,3,Sí
+ENC-00264,2024-01-20,Atención al Cliente,3,1,1,3,No
+ENC-00265,2024-05-22,Post-Venta,5,4,1,1,No
+ENC-00266,2024-05-14,Delivery,6,3,3,4,No
+ENC-00267,2024-06-03,Post-Venta,7,5,5,1,Sí
+ENC-00268,2024-05-11,Soporte Técnico,5,4,2,1,No
+ENC-00269,2024-06-05,Delivery,6,1,5,3,Sí
+ENC-00270,2024-05-12,Post-Venta,6,5,2,5,No
+ENC-00271,2024-04-09,Soporte Técnico,5,5,1,2,Sí
+ENC-00272,2024-04-18,Post-Venta,6,2,4,3,No
+ENC-00273,2024-01-02,Soporte Técnico,5,3,2,1,Sí
+ENC-00274,2024-02-21,Atención al Cliente,7,3,4,2,Sí
+ENC-00275,2024-03-03,Atención al Cliente,6,4,2,3,No
+ENC-00276,2024-04-19,Ventas,2,2,1,3,No
+ENC-00277,2024-03-28,Delivery,5,4,1,3,No
+ENC-00278,2024-05-06,Post-Venta,3,3,2,4,No
+ENC-00279,2024-03-03,Soporte Técnico,10,5,5,5,Sí
+ENC-00280,2024-01-15,Ventas,2,3,1,1,No
+ENC-00281,2024-01-08,Delivery,2,2,3,1,Sí
+ENC-00282,2024-05-15,Post-Venta,5,3,2,4,Sí
+ENC-00283,2024-05-03,Ventas,3,2,1,1,Sí
+ENC-00284,2024-06-06,Post-Venta,4,3,5,1,No
+ENC-00285,2024-01-14,Atención al Cliente,7,2,3,5,Sí
+ENC-00286,2024-02-20,Atención al Cliente,3,2,2,2,No
+ENC-00287,2024-06-23,Delivery,5,1,2,4,No
+ENC-00288,2024-03-11,Atención al Cliente,7,2,3,3,Sí
+ENC-00289,2024-01-26,Atención al Cliente,8,3,5,3,Sí
+ENC-00290,2024-02-03,Soporte Técnico,6,3,5,1,No
+ENC-00291,2024-05-10,Delivery,6,5,2,3,No
+ENC-00292,2024-01-19,Ventas,6,5,4,1,Sí
+ENC-00293,2024-03-20,Soporte Técnico,5,4,3,2,Sí
+ENC-00294,2024-04-03,Ventas,4,3,1,2,No
+ENC-00295,2024-04-26,Atención al Cliente,6,5,4,1,No
+ENC-00296,2024-01-13,Post-Venta,3,3,3,2,No
+ENC-00297,2024-04-14,Atención al Cliente,6,5,2,4,No
+ENC-00298,2024-04-22,Atención al Cliente,7,5,4,2,Sí
+ENC-00299,2024-03-29,Post-Venta,8,5,2,5,Sí
+ENC-00300,2024-06-27,Soporte Técnico,5,3,2,3,No
+ENC-00301,2024-01-01,Delivery,6,3,2,3,Sí
+ENC-00302,2024-02-05,Soporte Técnico,4,1,1,4,Sí
+ENC-00303,2024-05-19,Delivery,4,4,1,1,No
+ENC-00304,2024-04-13,Ventas,4,5,1,2,Sí
+ENC-00305,2024-06-13,Ventas,3,1,2,2,No
+ENC-00306,2024-06-27,Post-Venta,5,4,1,3,Sí
+ENC-00307,2024-01-17,Soporte Técnico,4,1,5,1,No
+ENC-00308,2024-06-04,Delivery,2,1,2,1,No
+ENC-00309,2024-03-08,Atención al Cliente,8,2,5,4,Sí
+ENC-00310,2024-06-08,Delivery,7,2,5,4,Sí
+ENC-00311,2024-01-09,Soporte Técnico,9,5,5,5,Sí
+ENC-00312,2024-02-07,Delivery,7,4,4,4,Sí
+ENC-00313,2024-05-12,Soporte Técnico,6,3,2,4,No
+ENC-00314,2024-05-25,Ventas,4,4,2,1,No
+ENC-00315,2024-06-24,Delivery,7,5,3,3,Sí
+ENC-00316,2024-03-21,Post-Venta,4,2,3,2,Sí
+ENC-00317,2024-02-05,Ventas,7,3,4,5,Sí
+ENC-00318,2024-04-08,Ventas,6,4,1,4,Sí
+ENC-00319,2024-01-13,Post-Venta,2,1,1,3,No
+ENC-00320,2024-06-02,Atención al Cliente,4,2,2,5,No
+ENC-00321,2024-02-19,Atención al Cliente,6,1,4,5,No
+ENC-00322,2024-01-04,Atención al Cliente,5,2,4,2,No
+ENC-00323,2024-02-05,Post-Venta,5,4,2,4,No
+ENC-00324,2024-05-06,Ventas,4,1,4,1,Sí
+ENC-00325,2024-01-10,Ventas,3,1,1,2,No
+ENC-00326,2024-03-23,Delivery,7,5,2,5,Sí
+ENC-00327,2024-01-03,Atención al Cliente,6,4,3,2,Sí
+ENC-00328,2024-03-10,Ventas,10,5,5,4,Sí
+ENC-00329,2024-03-06,Soporte Técnico,8,4,3,5,Sí
+ENC-00330,2024-03-04,Atención al Cliente,8,5,3,5,Sí
+ENC-00331,2024-03-01,Post-Venta,6,2,1,5,No
+ENC-00332,2024-03-20,Soporte Técnico,6,2,3,5,No
+ENC-00333,2024-01-14,Post-Venta,9,5,3,5,Sí
+ENC-00334,2024-05-09,Soporte Técnico,3,1,4,1,No
+ENC-00335,2024-01-05,Post-Venta,9,5,4,2,Sí
+ENC-00336,2024-06-19,Ventas,6,4,3,1,Sí
+ENC-00337,2024-02-18,Ventas,7,2,3,3,Sí
+ENC-00338,2024-05-10,Soporte Técnico,8,4,4,4,Sí
+ENC-00339,2024-02-05,Atención al Cliente,5,1,2,4,Sí
+ENC-00340,2024-02-19,Post-Venta,9,4,3,5,Sí
+ENC-00341,2024-03-21,Ventas,6,1,4,4,No
+ENC-00342,2024-05-31,Ventas,4,5,2,1,No
+ENC-00343,2024-03-05,Atención al Cliente,7,4,3,4,Sí
+ENC-00344,2024-02-15,Atención al Cliente,8,4,5,2,Sí
+ENC-00345,2024-04-10,Delivery,7,5,3,2,Sí
+ENC-00346,2024-04-21,Ventas,8,5,3,2,Sí
+ENC-00347,2024-03-23,Ventas,5,5,5,1,Sí
+ENC-00348,2024-03-25,Delivery,5,5,3,2,No
+ENC-00349,2024-02-10,Atención al Cliente,4,2,3,4,No
+ENC-00350,2024-03-16,Soporte Técnico,6,3,1,3,No
+ENC-00351,2024-06-12,Ventas,8,5,5,5,Sí
+ENC-00352,2024-06-14,Atención al Cliente,6,5,1,3,Sí
+ENC-00353,2024-01-16,Soporte Técnico,5,3,2,2,Sí
+ENC-00354,2024-01-28,Ventas,4,3,2,2,No
+ENC-00355,2024-01-24,Atención al Cliente,6,2,3,2,Sí
+ENC-00356,2024-05-04,Soporte Técnico,5,3,1,5,No
+ENC-00357,2024-04-14,Soporte Técnico,7,1,3,5,Sí
+ENC-00358,2024-06-27,Delivery,6,4,3,4,No
+ENC-00359,2024-03-31,Soporte Técnico,4,2,2,1,No
+ENC-00360,2024-01-23,Delivery,4,2,1,5,No
+ENC-00361,2024-06-09,Post-Venta,5,1,4,5,No
+ENC-00362,2024-05-02,Soporte Técnico,6,5,3,2,Sí
+ENC-00363,2024-03-10,Ventas,4,2,4,3,No
+ENC-00364,2024-03-31,Ventas,5,2,1,5,No
+ENC-00365,2024-03-18,Delivery,6,3,3,5,No
+ENC-00366,2024-02-05,Post-Venta,6,4,2,3,No
+ENC-00367,2024-01-28,Delivery,5,1,2,5,Sí
+ENC-00368,2024-02-06,Atención al Cliente,8,5,3,4,Sí
+ENC-00369,2024-04-10,Atención al Cliente,5,1,5,2,Sí
+ENC-00370,2024-01-21,Post-Venta,4,5,1,1,No
+ENC-00371,2024-03-06,Delivery,7,4,1,4,Sí
+ENC-00372,2024-06-06,Atención al Cliente,6,5,1,5,Sí
+ENC-00373,2024-04-08,Post-Venta,7,2,3,3,Sí
+ENC-00374,2024-02-23,Delivery,4,1,1,5,Sí
+ENC-00375,2024-01-11,Delivery,5,3,5,1,No
+ENC-00376,2024-06-20,Delivery,3,3,1,3,Sí
+ENC-00377,2024-05-24,Ventas,7,5,2,4,Sí
+ENC-00378,2024-05-30,Delivery,7,2,3,5,Sí
+ENC-00379,2024-03-05,Post-Venta,5,2,5,1,Sí
+ENC-00380,2024-03-19,Atención al Cliente,6,5,4,1,No
+ENC-00381,2024-06-07,Soporte Técnico,8,4,4,5,Sí
+ENC-00382,2024-05-22,Soporte Técnico,4,4,2,1,Sí
+ENC-00383,2024-01-31,Delivery,3,1,4,1,Sí
+ENC-00384,2024-02-21,Soporte Técnico,4,1,5,3,No
+ENC-00385,2024-03-09,Atención al Cliente,9,5,3,5,Sí
+ENC-00386,2024-04-19,Delivery,8,4,5,4,Sí
+ENC-00387,2024-05-28,Ventas,6,4,4,3,No
+ENC-00388,2024-03-05,Atención al Cliente,8,3,5,3,Sí
+ENC-00389,2024-02-12,Atención al Cliente,4,2,3,2,No
+ENC-00390,2024-05-05,Soporte Técnico,8,4,3,5,Sí
+ENC-00391,2024-02-27,Ventas,5,4,3,2,No
+ENC-00392,2024-03-15,Post-Venta,6,4,2,3,No
+ENC-00393,2024-03-09,Delivery,6,4,5,1,No
+ENC-00394,2024-06-27,Post-Venta,8,4,2,5,Sí
+ENC-00395,2024-02-18,Ventas,8,5,4,5,Sí
+ENC-00396,2024-03-10,Ventas,6,1,5,4,No
+ENC-00397,2024-05-13,Soporte Técnico,9,4,5,5,Sí
+ENC-00398,2024-01-01,Post-Venta,4,2,2,1,No
+ENC-00399,2024-03-31,Ventas,4,3,1,5,No
+ENC-00400,2024-04-26,Atención al Cliente,5,4,1,3,No
+ENC-00401,2024-03-07,Atención al Cliente,6,3,4,3,No
+ENC-00402,2024-05-05,Ventas,6,2,3,3,Sí
+ENC-00403,2024-02-13,Delivery,3,1,3,1,No
+ENC-00404,2024-03-15,Atención al Cliente,3,1,2,3,No
+ENC-00405,2024-01-16,Delivery,7,4,4,4,Sí
+ENC-00406,2024-02-21,Atención al Cliente,5,2,3,4,No
+ENC-00407,2024-04-08,Ventas,5,2,1,4,Sí
+ENC-00408,2024-04-24,Soporte Técnico,7,3,2,4,Sí
+ENC-00409,2024-02-24,Atención al Cliente,8,5,2,3,Sí
+ENC-00410,2024-06-13,Atención al Cliente,8,2,4,5,Sí
+ENC-00411,2024-05-20,Ventas,8,1,5,4,Sí
+ENC-00412,2024-04-24,Delivery,9,2,3,5,Sí
+ENC-00413,2024-03-28,Atención al Cliente,9,5,5,5,Sí
+ENC-00414,2024-06-11,Atención al Cliente,6,3,5,1,Sí
+ENC-00415,2024-03-19,Ventas,7,5,5,3,Sí
+ENC-00416,2024-04-13,Soporte Técnico,4,4,1,4,No
+ENC-00417,2024-04-29,Post-Venta,6,2,5,3,No
+ENC-00418,2024-01-23,Post-Venta,5,5,1,3,No
+ENC-00419,2024-04-29,Atención al Cliente,5,3,1,4,No
+ENC-00420,2024-05-15,Atención al Cliente,8,5,4,2,Sí
+ENC-00421,2024-04-20,Delivery,9,5,5,2,Sí
+ENC-00422,2024-01-26,Post-Venta,7,4,1,5,Sí
+ENC-00423,2024-05-16,Atención al Cliente,3,2,1,1,No
+ENC-00424,2024-04-09,Post-Venta,6,5,5,2,No
+ENC-00425,2024-02-23,Atención al Cliente,8,5,4,3,Sí
+ENC-00426,2024-06-22,Ventas,3,3,1,1,No
+ENC-00427,2024-05-09,Post-Venta,1,1,2,1,Sí
+ENC-00428,2024-03-16,Post-Venta,8,4,3,5,Sí
+ENC-00429,2024-06-09,Soporte Técnico,2,2,2,1,No
+ENC-00430,2024-05-20,Soporte Técnico,5,1,5,2,No
+ENC-00431,2024-01-10,Ventas,6,1,5,4,No
+ENC-00432,2024-06-07,Atención al Cliente,2,2,2,2,No
+ENC-00433,2024-02-26,Soporte Técnico,6,4,3,5,No
+ENC-00434,2024-03-25,Ventas,7,5,4,2,Sí
+ENC-00435,2024-03-05,Delivery,5,2,5,1,No
+ENC-00436,2024-04-22,Post-Venta,4,3,1,4,No
+ENC-00437,2024-04-28,Post-Venta,5,1,4,4,Sí
+ENC-00438,2024-02-10,Post-Venta,5,4,1,4,No
+ENC-00439,2024-04-26,Atención al Cliente,4,1,3,2,No
+ENC-00440,2024-03-24,Soporte Técnico,6,5,3,2,No
+ENC-00441,2024-01-15,Post-Venta,7,5,4,1,Sí
+ENC-00442,2024-05-09,Soporte Técnico,6,1,5,2,No
+ENC-00443,2024-05-04,Delivery,5,1,3,3,Sí
+ENC-00444,2024-05-27,Post-Venta,4,4,1,1,No
+ENC-00445,2024-06-11,Post-Venta,5,1,3,3,No
+ENC-00446,2024-06-09,Atención al Cliente,6,1,4,4,No
+ENC-00447,2024-01-08,Delivery,5,2,4,4,Sí
+ENC-00448,2024-06-06,Delivery,7,5,2,2,Sí
+ENC-00449,2024-05-30,Post-Venta,5,4,1,4,No
+ENC-00450,2024-05-06,Atención al Cliente,9,5,4,5,Sí
+ENC-00451,2024-04-01,Delivery,2,1,1,4,Sí
+ENC-00452,2024-06-17,Soporte Técnico,3,2,1,2,Sí
+ENC-00453,2024-04-17,Soporte Técnico,3,1,3,3,No
+ENC-00454,2024-06-06,Delivery,2,2,1,1,No
+ENC-00455,2024-04-07,Soporte Técnico,5,1,5,3,No
+ENC-00456,2024-03-18,Post-Venta,8,4,3,4,Sí
+ENC-00457,2024-03-09,Atención al Cliente,5,4,1,5,No
+ENC-00458,2024-06-17,Soporte Técnico,7,4,2,4,Sí
+ENC-00459,2024-05-22,Atención al Cliente,2,2,2,2,No
+ENC-00460,2024-01-15,Delivery,3,2,2,1,No
+ENC-00461,2024-03-15,Soporte Técnico,5,5,1,4,Sí
+ENC-00462,2024-05-01,Soporte Técnico,6,1,5,5,No
+ENC-00463,2024-04-18,Atención al Cliente,6,1,2,5,No
+ENC-00464,2024-02-08,Post-Venta,2,1,1,2,Sí
+ENC-00465,2024-05-06,Atención al Cliente,7,5,4,1,Sí
+ENC-00466,2024-05-20,Soporte Técnico,7,3,4,3,Sí
+ENC-00467,2024-05-20,Atención al Cliente,6,3,2,2,No
+ENC-00468,2024-03-18,Ventas,7,5,3,3,Sí
+ENC-00469,2024-02-28,Atención al Cliente,7,5,4,2,Sí
+ENC-00470,2024-05-23,Atención al Cliente,7,2,5,4,Sí
+ENC-00471,2024-01-21,Atención al Cliente,6,4,5,1,No
+ENC-00472,2024-04-14,Delivery,6,5,4,1,Sí
+ENC-00473,2024-03-12,Ventas,5,3,2,5,Sí
+ENC-00474,2024-04-07,Post-Venta,6,1,4,2,Sí
+ENC-00475,2024-05-25,Delivery,8,1,5,5,Sí
+ENC-00476,2024-06-02,Ventas,4,4,2,2,Sí
+ENC-00477,2024-04-12,Post-Venta,6,3,3,1,No
+ENC-00478,2024-03-17,Soporte Técnico,3,3,1,3,No
+ENC-00479,2024-01-15,Delivery,7,2,5,5,Sí
+ENC-00480,2024-03-30,Ventas,5,1,5,4,No
+ENC-00481,2024-01-27,Soporte Técnico,7,3,4,4,Sí
+ENC-00482,2024-06-21,Atención al Cliente,10,5,5,4,Sí
+ENC-00483,2024-05-29,Ventas,6,5,4,1,Sí
+ENC-00484,2024-06-19,Soporte Técnico,4,1,5,1,Sí
+ENC-00485,2024-01-21,Ventas,3,2,2,3,Sí
+ENC-00486,2024-01-21,Soporte Técnico,3,1,1,1,No
+ENC-00487,2024-03-25,Atención al Cliente,5,2,5,3,No
+ENC-00488,2024-02-22,Ventas,5,1,3,5,No
+ENC-00489,2024-05-30,Delivery,7,5,2,5,Sí
+ENC-00490,2024-06-25,Soporte Técnico,2,1,1,3,No
+ENC-00491,2024-06-24,Delivery,4,4,1,1,No
+ENC-00492,2024-03-04,Post-Venta,7,3,4,2,Sí
+ENC-00493,2024-01-04,Soporte Técnico,6,2,4,2,No
+ENC-00494,2024-02-23,Delivery,5,3,1,5,No
+ENC-00495,2024-06-28,Ventas,4,2,1,1,No
+ENC-00496,2024-04-05,Soporte Técnico,4,1,1,5,No
+ENC-00497,2024-04-16,Delivery,9,5,5,3,Sí
+ENC-00498,2024-05-04,Post-Venta,7,4,5,3,Sí
+ENC-00499,2024-02-09,Soporte Técnico,5,2,5,2,No
+ENC-00500,2024-03-27,Post-Venta,6,5,2,1,No

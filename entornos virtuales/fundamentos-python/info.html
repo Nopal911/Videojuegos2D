@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Maestro de la Persuasión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: #6366f1;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-6xl mx-auto space-y-16">
+        
+        <!-- Header Principal -->
+        <header class="hero-gradient rounded-[3rem] p-10 md:p-20 text-white text-center shadow-2xl relative overflow-hidden">
+            <div class="relative z-10 space-y-6">
+                <span class="bg-white/20 backdrop-blur-md px-6 py-2 rounded-full text-sm font-bold tracking-widest uppercase inline-block border border-white/30">Infografía</span>
+                <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none">EMPRENDEDOR <br><span class="text-yellow-300">PERSUASIVO</span></h1>
+                <p class="text-xl md:text-2xl opacity-90 font-light max-w-2xl mx-auto">Guía visual para emprendedores que buscan transformar ideas en realidades mediante la persuasión ética.</p>
+            </div>
+            <!-- Elementos decorativos -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500/20 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+        </header>
+
+        <!-- Sección 1: El Perfil y la Psicología -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="space-y-6">
+                <h2 class="text-4xl font-black section-title uppercase">El Perfil del Líder</h2>
+                <p class="text-slate-600 text-lg">La persuasión no es un truco, es un estado mental. Un emprendedor persuasivo domina tres áreas críticas antes de abrir la boca.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-2xl shadow-sm border-l-4 border-indigo-500">
+                        <h4 class="font-bold text-indigo-600">Inteligencia Emocional</h4>
+                        <p class="text-sm text-slate-500">Capacidad para leer la sala y adaptar el mensaje.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-2xl shadow-sm border-l-4 border-pink-500">
+                        <h4 class="font-bold text-pink-600">Escucha Radical</h4>
+                        <p class="text-sm text-slate-500">No esperes tu turno para hablar, busca entender.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-indigo-50 p-6 rounded-3xl border border-indigo-100 italic text-indigo-900">
+                    "La gente olvidará lo que dijiste, pero nunca olvidará cómo la hiciste sentir."
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000" 
+                     alt="[Imagen de equipo colaborando]" 
+                     class="rounded-[2.5rem] shadow-2xl object-cover h-80 w-full lg:h-auto">
+                <div class="absolute -bottom-6 -right-6 bg-yellow-400 p-6 rounded-2xl shadow-xl hidden md:block">
+                    <i data-lucide="brain-circuit" class="w-10 h-10 text-indigo-900"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: La Fórmula AIDA (Estructura de Mensaje) -->
+        <section class="bg-slate-900 rounded-[3rem] p-8 md:p-16 text-white">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black mb-4">LA FÓRMULA DE ALTO IMPACTO</h2>
+                <p class="text-slate-400">Cómo estructurar cualquier discurso o propuesta.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Atención -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl text-center card-hover">
+                    <div class="text-yellow-400 text-4xl font-black mb-4">A</div>
+                    <h3 class="font-bold text-lg mb-2">ATENCIÓN</h3>
+                    <p class="text-sm text-slate-400">Rompe el patrón en los primeros 5 segundos con un dato o pregunta.</p>
+                </div>
+                <!-- Interés -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl text-center card-hover">
+                    <div class="text-indigo-400 text-4xl font-black mb-4">I</div>
+                    <h3 class="font-bold text-lg mb-2">INTERÉS</h3>
+                    <p class="text-sm text-slate-400">Presenta el problema que tu audiencia no sabía que tenía.</p>
+                </div>
+                <!-- Deseo -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl text-center card-hover">
+                    <div class="text-pink-400 text-4xl font-black mb-4">D</div>
+                    <h3 class="font-bold text-lg mb-2">DESEO</h3>
+                    <p class="text-sm text-slate-400">Muestra la transformación y los beneficios de tu solución.</p>
+                </div>
+                <!-- Acción -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl text-center card-hover">
+                    <div class="text-green-400 text-4xl font-black mb-4">A</div>
+                    <h3 class="font-bold text-lg mb-2">ACCIÓN</h3>
+                    <p class="text-sm text-slate-400">Diles exactamente qué hacer a continuación. Sin miedo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Armas de Influencia (Simplificada) -->
+        <section class="space-y-10">
+            <div class="text-center">
+                <h2 class="text-4xl font-black section-title uppercase mb-2">Llaves Maestras</h2>
+                <p class="text-slate-500">Principios clave para potenciar tu mensaje.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Escasez -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden card-hover border-t-4 border-orange-500">
+                    <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&q=80&w=400" alt="[Imagen de reloj de arena]" class="h-40 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="hourglass" class="text-orange-500"></i>
+                            <h4 class="font-extrabold uppercase text-sm">Escasez</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm">Valoramos más lo que es difícil de conseguir. El tiempo limitado o las plazas exclusivas aceleran decisiones.</p>
+                    </div>
+                </div>
+
+                <!-- Prueba Social -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden card-hover border-t-4 border-emerald-500">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" alt="[Imagen de grupo sonriendo]" class="h-40 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="users" class="text-emerald-500"></i>
+                            <h4 class="font-extrabold uppercase text-sm">Prueba Social</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm">Si otros lo hacen, debe ser bueno. Testimonios y números de usuarios son vitales para generar confianza.</p>
+                    </div>
+                </div>
+
+                <!-- Simpatía -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden card-hover border-t-4 border-pink-500">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=400" alt="[Imagen de personas riendo]" class="h-40 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="heart" class="text-pink-500"></i>
+                            <h4 class="font-extrabold uppercase text-sm">Simpatía</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm">Decimos "sí" a quienes nos caen bien. Encuentra puntos en común y practica el elogio genuino.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Comunicación No Verbal -->
+        <section class="bg-indigo-50 rounded-[3rem] p-10 flex flex-col lg:row gap-10 items-center">
+            <div class="lg:w-1/3">
+                <img src="https://images.unsplash.com/photo-1557426272-fc759fbb7a8d?auto=format&fit=crop&q=80&w=800" alt="[Imagen de comunicación no verbal]" class="rounded-3xl shadow-lg grayscale hover:grayscale-0 transition-all duration-500">
+            </div>
+            <div class="lg:w-2/3 space-y-6">
+                <h2 class="text-3xl font-black">EL LENGUAJE INVISIBLE</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-10 h-10 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold">1</div>
+                        <div>
+                            <h5 class="font-bold">Contacto Visual</h5>
+                            <p class="text-sm text-slate-600">Genera oxitocina y confianza. Mantén un balance natural sin intimidar.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-10 h-10 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold">2</div>
+                        <div>
+                            <h5 class="font-bold">Postura Abierta</h5>
+                            <p class="text-sm text-slate-600">Evita cruzar los brazos. Ocupa tu espacio con seguridad pero sin agresividad.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-10 h-10 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold">3</div>
+                        <div>
+                            <h5 class="font-bold">Mirroring (Espejo)</h5>
+                            <p class="text-sm text-slate-600">Imita sutilmente la postura y ritmo del otro para crear una conexión subconsciente.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-10 h-10 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <h5 class="font-bold">Las Manos</h5>
+                            <p class="text-sm text-slate-600">Mantén las manos visibles. Gesticular ayuda a enfatizar ideas y demuestra honestidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer: Ética y Cierre -->
+        <footer class="bg-slate-900 rounded-[3rem] p-12 text-white relative overflow-hidden">
+            <div class="max-w-3xl mx-auto text-center space-y-8 relative z-10">
+                <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-yellow-400/20">
+                    <i data-lucide="shield-check" class="text-slate-900 w-10 h-10"></i>
+                </div>
+                <h3 class="text-3xl font-bold">PERSUASIÓN VS MANIPULACIÓN</h3>
+                <p class="text-slate-400 text-lg">
+                    La persuasión es ganar-ganar. Buscas ayudar a la otra persona a tomar la mejor decisión para ella. La manipulación es ganar-perder. 
+                    <strong>Usa este poder con responsabilidad.</strong>
+                </p>
+                <div class="pt-8 border-t border-white/10">
+                    <p class="text-sm text-slate-500 uppercase tracking-widest font-bold">Guía para Emprendedores 2024</p>
+                </div>
+            </div>
+            <!-- Decoración -->
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <div class="grid grid-cols-6 h-full">
+                   <div class="border-r border-white"></div><div class="border-r border-white"></div><div class="border-r border-white"></div><div class="border-r border-white"></div><div class="border-r border-white"></div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+    </script>
+</body>
+</html>
