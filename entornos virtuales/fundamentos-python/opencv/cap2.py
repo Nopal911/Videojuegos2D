@@ -4,33 +4,30 @@ import numpy as np
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                              QHBoxLayout, QLabel, QSlider, QPushButton, 
                              QGroupBox, QComboBox)
-from PyQt6.QtCore import Qt, QTimer, QDateTime # <-- Añadido QDateTime
+from PyQt6.QtCore import Qt, QTimer, QDateTime
 from PyQt6.QtGui import QImage, QPixmap
 
 class SelectorColorMagico(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("🎬 Selector de Color Mágico - Capítulo 2")
+        self.setWindowTitle("🎬 Selector de Color Mágico - Corregido")
         self.setGeometry(100, 100, 1300, 800)
         
         # Variables de captura
         self.cap = None
         self.camara_activa = False
-        self.frame_actual = None # <-- Inicializamos la variable de la captura
+        self.frame_actual = None
+        self.datos_imagen = None 
         
-        # Rango HSV para el color a preservar
-        self.h_min = 0
-        self.h_max = 179
-        self.s_min = 0
-        self.s_max = 255
-        self.v_min = 0
-        self.v_max = 255
+        # Rango HSV inicial (Preservar todo por defecto)
+        self.h_min, self.h_max = 0, 179
+        self.s_min, self.s_max = 0, 255
+        self.v_min, self.v_max = 0, 255
         
         # Colores predefinidos
         self.colores_preset = {
             "Personalizado": (0, 179, 0, 255, 0, 255),
             "Rojo": (0, 10, 100, 255, 100, 255),
-            "Rojo (alternativo)": (170, 179, 100, 255, 100, 255),
             "Verde": (40, 80, 100, 255, 100, 255),
             "Azul": (100, 130, 100, 255, 100, 255),
             "Amarillo": (20, 30, 100, 255, 100, 255),
@@ -44,229 +41,150 @@ class SelectorColorMagico(QMainWindow):
     def setup_ui(self):
         central = QWidget()
         self.setCentralWidget(central)
-        
-        # Layout principal horizontal
         layout = QHBoxLayout(central)
         
-        # Panel izquierdo: visualización
+        # --- PANEL DE VIDEO ---
         panel_video = QWidget()
         layout_video = QVBoxLayout(panel_video)
         
-        self.label_video = QLabel()
+        self.label_video = QLabel("Cargando cámara...")
         self.label_video.setMinimumSize(800, 600)
-        self.label_video.setStyleSheet("border: 2px solid #333; background-color: #111;")
+        self.label_video.setStyleSheet("border: 2px solid #333; background-color: #000;")
         self.label_video.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout_video.addWidget(self.label_video)
         
-        # Información de FPS
-        self.fps_label = QLabel("FPS: --")
-        layout_video.addWidget(self.fps_label)
-        
         layout.addWidget(panel_video, 3)
         
-        # Panel derecho: controles
+        # --- PANEL DE CONTROL ---
         panel_control = QWidget()
-        panel_control.setMaximumWidth(400)
+        panel_control.setMaximumWidth(350)
         layout_control = QVBoxLayout(panel_control)
         
-        # Grupo: Selección de color predefinido
-        grupo_preset = QGroupBox("🎨 Colores Predefinidos")
-        layout_preset = QVBoxLayout()
-        
+        # Presets
+        grupo_preset = QGroupBox("🎨 Presets de Color")
+        lay_p = QVBoxLayout()
         self.combo_colores = QComboBox()
         self.combo_colores.addItems(self.colores_preset.keys())
         self.combo_colores.currentTextChanged.connect(self.cambiar_preset)
-        layout_preset.addWidget(self.combo_colores)
-        
-        grupo_preset.setLayout(layout_preset)
+        lay_p.addWidget(self.combo_colores)
+        grupo_preset.setLayout(lay_p)
         layout_control.addWidget(grupo_preset)
         
-        # Grupo: Control manual HSV
-        grupo_hsv = QGroupBox("🎚️ Control Manual HSV")
-        layout_hsv = QVBoxLayout()
+        # Sliders HSV
+        grupo_hsv = QGroupBox("🎚️ Ajuste Manual HSV")
+        lay_hsv = QVBoxLayout()
         
-        # Hue
-        layout_hsv.addWidget(QLabel("Hue (Matiz):"))
-        slider_h_min = QSlider(Qt.Orientation.Horizontal)
-        slider_h_min.setRange(0, 179)
-        slider_h_min.valueChanged.connect(lambda v: self.actualizar_hsv('h_min', v))
-        layout_hsv.addWidget(QLabel("  Mínimo:"))
-        layout_hsv.addWidget(slider_h_min)
-        
-        slider_h_max = QSlider(Qt.Orientation.Horizontal)
-        slider_h_max.setRange(0, 179)
-        slider_h_max.setValue(179)
-        slider_h_max.valueChanged.connect(lambda v: self.actualizar_hsv('h_max', v))
-        layout_hsv.addWidget(QLabel("  Máximo:"))
-        layout_hsv.addWidget(slider_h_max)
-        
-        # Saturation
-        layout_hsv.addWidget(QLabel("Saturation (Saturación):"))
-        slider_s_min = QSlider(Qt.Orientation.Horizontal)
-        slider_s_min.setRange(0, 255)
-        slider_s_min.valueChanged.connect(lambda v: self.actualizar_hsv('s_min', v))
-        layout_hsv.addWidget(QLabel("  Mínimo:"))
-        layout_hsv.addWidget(slider_s_min)
-        
-        slider_s_max = QSlider(Qt.Orientation.Horizontal)
-        slider_s_max.setRange(0, 255)
-        slider_s_max.setValue(255)
-        slider_s_max.valueChanged.connect(lambda v: self.actualizar_hsv('s_max', v))
-        layout_hsv.addWidget(QLabel("  Máximo:"))
-        layout_hsv.addWidget(slider_s_max)
-        
-        # Value
-        layout_hsv.addWidget(QLabel("Value (Brillo):"))
-        slider_v_min = QSlider(Qt.Orientation.Horizontal)
-        slider_v_min.setRange(0, 255)
-        slider_v_min.valueChanged.connect(lambda v: self.actualizar_hsv('v_min', v))
-        layout_hsv.addWidget(QLabel("  Mínimo:"))
-        layout_hsv.addWidget(slider_v_min)
-        
-        slider_v_max = QSlider(Qt.Orientation.Horizontal)
-        slider_v_max.setRange(0, 255)
-        slider_v_max.setValue(255)
-        slider_v_max.valueChanged.connect(lambda v: self.actualizar_hsv('v_max', v))
-        layout_hsv.addWidget(QLabel("  Máximo:"))
-        layout_hsv.addWidget(slider_v_max)
-        
-        grupo_hsv.setLayout(layout_hsv)
+        self.sliders = {}
+        for param, nombre, max_val in [
+            ('h_min', 'Hue Mín', 179), ('h_max', 'Hue Máx', 179),
+            ('s_min', 'Sat Mín', 255), ('s_max', 'Sat Máx', 255),
+            ('v_min', 'Val Mín', 255), ('v_max', 'Val Máx', 255)
+        ]:
+            lay_hsv.addWidget(QLabel(nombre))
+            s = QSlider(Qt.Orientation.Horizontal)
+            s.setRange(0, max_val)
+            s.setValue(max_val if 'max' in param else 0)
+            s.valueChanged.connect(lambda v, p=param: self.actualizar_hsv(p, v))
+            lay_hsv.addWidget(s)
+            self.sliders[param] = s
+            
+        grupo_hsv.setLayout(lay_hsv)
         layout_control.addWidget(grupo_hsv)
         
-        # Grupo: Información
-        grupo_info = QGroupBox("ℹ️ Información")
-        layout_info = QVBoxLayout()
+        # Info y Botón
+        self.info_label = QLabel("H: [0, 179] S: [0, 255] V: [0, 255]")
+        layout_control.addWidget(self.info_label)
         
-        self.info_rango = QLabel(
-            f"H: [{self.h_min}, {self.h_max}]\n"
-            f"S: [{self.s_min}, {self.s_max}]\n"
-            f"V: [{self.v_min}, {self.v_max}]"
-        )
-        layout_info.addWidget(self.info_rango)
-        
-        grupo_info.setLayout(layout_info)
-        layout_control.addWidget(grupo_info)
-        
-        # Botón captura
-        btn_captura = QPushButton("📸 Guardar instantánea")
-        btn_captura.clicked.connect(self.guardar_instantanea)
-        layout_control.addWidget(btn_captura)
+        btn_foto = QPushButton("📸 Guardar Foto")
+        btn_foto.setFixedHeight(40)
+        btn_foto.setStyleSheet("background-color: #2c3e50; color: white; font-weight: bold;")
+        btn_foto.clicked.connect(self.guardar_instantanea)
+        layout_control.addWidget(btn_foto)
         
         layout_control.addStretch()
         layout.addWidget(panel_control, 1)
-        
-        # Guardar referencias a sliders para actualizar después
-        self.sliders = {
-            'h_min': slider_h_min, 'h_max': slider_h_max,
-            's_min': slider_s_min, 's_max': slider_s_max,
-            'v_min': slider_v_min, 'v_max': slider_v_max
-        }
-        
+
     def setup_camara(self):
-        self.cap = cv2.VideoCapture(0)
+        # CAP_DSHOW es vital para evitar bloqueos en Windows
+        self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        
         if self.cap.isOpened():
+            # Configurar resolución antes de iniciar el timer
+            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+            
             self.camara_activa = True
             self.timer = QTimer()
             self.timer.timeout.connect(self.actualizar_frame)
-            self.timer.start(30)  # ~33 fps
-            
-            # Configurar resolución
-            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-    
-    def actualizar_hsv(self, parametro, valor):
-        setattr(self, parametro, valor)
-        self.info_rango.setText(
-            f"H: [{self.h_min}, {self.h_max}]\n"
-            f"S: [{self.s_min}, {self.s_max}]\n"
-            f"V: [{self.v_min}, {self.v_max}]"
-        )
+            self.timer.start(30)
+        else:
+            self.label_video.setText("❌ No se detectó la cámara")
+
+    def actualizar_hsv(self, param, valor):
+        setattr(self, param, valor)
+        self.info_label.setText(f"H: [{self.h_min}, {self.h_max}] S: [{self.s_min}, {self.s_max}] V: [{self.v_min}, {self.v_max}]")
 
     def cambiar_preset(self, nombre):
         if nombre in self.colores_preset:
-            valores = self.colores_preset[nombre]
-            self.h_min, self.h_max, self.s_min, self.s_max, self.v_min, self.v_max = valores
-            
-            # Actualizar sliders
-            self.sliders['h_min'].setValue(self.h_min)
-            self.sliders['h_max'].setValue(self.h_max)
-            self.sliders['s_min'].setValue(self.s_min)
-            self.sliders['s_max'].setValue(self.s_max)
-            self.sliders['v_min'].setValue(self.v_min)
-            self.sliders['v_max'].setValue(self.v_max)
-    
-    def aplicar_efecto_cine(self, frame):
-        # Convertir a HSV
+            v = self.colores_preset[nombre]
+            params = ['h_min', 'h_max', 's_min', 's_max', 'v_min', 'v_max']
+            for i, p in enumerate(params):
+                self.sliders[p].setValue(v[i])
+
+    def aplicar_efecto(self, frame):
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-        
-        # Crear máscara para el color seleccionado
         lower = np.array([self.h_min, self.s_min, self.v_min])
         upper = np.array([self.h_max, self.s_max, self.v_max])
-        mascara_color = cv2.inRange(hsv, lower, upper)
         
-        # Limpiar máscara
-        kernel = np.ones((5,5), np.uint8)
-        mascara_color = cv2.morphologyEx(mascara_color, cv2.MORPH_OPEN, kernel)
-        mascara_color = cv2.morphologyEx(mascara_color, cv2.MORPH_CLOSE, kernel)
+        # Crear máscara
+        mask = cv2.inRange(hsv, lower, upper)
+        mask = cv2.GaussianBlur(mask, (5, 5), 0)
         
-        # Suavizar bordes de la máscara
-        mascara_color = cv2.GaussianBlur(mascara_color, (5,5), 0)
+        # Convertir a Escala de Grises y de vuelta a BGR para poder combinar
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray_bgr = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
         
-        # Convertir frame a blanco y negro
-        frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        frame_gray = cv2.cvtColor(frame_gray, cv2.COLOR_GRAY2BGR)
-        
-        # Combinar usando la máscara
-        mascara_3ch = cv2.cvtColor(mascara_color, cv2.COLOR_GRAY2BGR) / 255.0
-        resultado = (frame * mascara_3ch + frame_gray * (1 - mascara_3ch)).astype(np.uint8)
+        # Mezclar: donde está la máscara, usar frame original; si no, el gris
+        mask_3d = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR) / 255.0
+        resultado = (frame * mask_3d + gray_bgr * (1 - mask_3d)).astype(np.uint8)
         
         return resultado
-    
+
     def actualizar_frame(self):
-        if not self.camara_activa:
-            return
-            
         ret, frame = self.cap.read()
         if ret:
-            # Aplicar efecto
-            frame_procesado = self.aplicar_efecto_cine(frame)
+            # Procesar
+            frame = cv2.flip(frame, 1) # Efecto espejo para comodidad
+            self.frame_actual = self.aplicar_efecto(frame)
             
-            # <-- CORRECCIÓN: Guardar el frame actual para que la foto funcione
-            self.frame_actual = frame_procesado 
-            
-            # Convertir a QImage para mostrar
-            rgb = cv2.cvtColor(frame_procesado, cv2.COLOR_BGR2RGB)
+            # Convertir para Qt
+            rgb = cv2.cvtColor(self.frame_actual, cv2.COLOR_BGR2RGB)
             h, w, ch = rgb.shape
-            bytes_per_line = ch * w
-            qt_image = QImage(rgb.data, w, h, bytes_per_line, QImage.Format.Format_RGB888)
             
-            # Escalar para mantener proporción
-            pixmap = QPixmap.fromImage(qt_image)
-            pixmap = pixmap.scaled(
-                self.label_video.size(),
-                Qt.AspectRatioMode.KeepAspectRatio,
+            # tobytes() evita errores de punteros en PyQt6
+            self.datos_imagen = rgb.tobytes()
+            q_img = QImage(self.datos_imagen, w, h, ch * w, QImage.Format.Format_RGB888)
+            
+            pixmap = QPixmap.fromImage(q_img)
+            self.label_video.setPixmap(pixmap.scaled(
+                self.label_video.size(), 
+                Qt.AspectRatioMode.KeepAspectRatio, 
                 Qt.TransformationMode.SmoothTransformation
-            )
-            
-            self.label_video.setPixmap(pixmap)
-    
+            ))
+
     def guardar_instantanea(self):
-        if self.camara_activa and self.frame_actual is not None:
-            timestamp = QDateTime.currentDateTime().toString("yyyyMMdd_hhmmss")
-            nombre_archivo = f"captura_cine_{timestamp}.png"
-            cv2.imwrite(nombre_archivo, self.frame_actual)
-            print(f"📸 Instantánea guardada como: {nombre_archivo}")
-            
+        if self.frame_actual is not None:
+            name = f"cine_{QDateTime.currentDateTime().toString('hhmmss')}.png"
+            cv2.imwrite(name, self.frame_actual)
+            print(f"✅ Guardado como: {name}")
+
     def closeEvent(self, event):
-        if self.camara_activa:
+        if self.cap:
             self.cap.release()
         event.accept()
 
-def main():
-    app = QApplication(sys.argv)
-    ventana = SelectorColorMagico()
-    ventana.show()
-    sys.exit(app.exec())
-
 if __name__ == "__main__":
-    main()
+    app = QApplication(sys.argv)
+    window = SelectorColorMagico()
+    window.show()
+    sys.exit(app.exec())

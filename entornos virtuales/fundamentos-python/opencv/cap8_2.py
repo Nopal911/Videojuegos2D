@@ -1,7 +1,18 @@
 import sys
 import cv2
-import mediapipe as mp
 import numpy as np
+
+# --- BLOQUE DE IMPORTACIÓN ULTRA-ROBUSTO ---
+try:
+    import mediapipe as mp
+    mp_pose = mp.solutions.pose
+    mp_drawing = mp.solutions.drawing_utils
+    print("✅ MediaPipe cargado por ruta estándar")
+except (ImportError, AttributeError):
+    print("❌ ERROR CRÍTICO: El entorno virtual no encuentra MediaPipe.")
+    print("Ejecuta: pip install --force-reinstall mediapipe")
+    sys.exit()
+
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                              QHBoxLayout, QLabel, QPushButton, QGroupBox,
                              QComboBox, QProgressBar)
@@ -14,21 +25,20 @@ class ContadorEjercicios(QMainWindow):
         self.setWindowTitle("💪 Fitness AI - UTNG Pro")
         self.setGeometry(100, 100, 1300, 800)
         
-        # MediaPipe Pose
-        self.mp_pose = mp.solutions.pose
-        self.pose = self.mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+        # Inicializar Pose
+        self.pose = mp_pose.Pose(
+            min_detection_confidence=0.5, 
+            min_tracking_confidence=0.5,
+            model_complexity=1
+        )
         
-        self.cap = cv2.VideoCapture(0)
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.actualizar_frame)
-        self.timer.start(30)
+        self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         
         # Variables de control
         self.ejercicio_actual = "sentadilla"
         self.contador = 0
         self.etapa = "arriba"
         
-        # Umbrales por ejercicio (abajo, arriba)
         self.config_ejercicios = {
             "sentadilla": (90, 160),
             "flexion": (70, 160),
@@ -36,55 +46,45 @@ class ContadorEjercicios(QMainWindow):
         }
         
         self.setup_ui()
+        
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.actualizar_frame)
+        self.timer.start(30)
     
     def setup_ui(self):
         central = QWidget()
         self.setCentralWidget(central)
         layout = QHBoxLayout(central)
         
-        # Panel de video
         self.label_video = QLabel()
         self.label_video.setMinimumSize(854, 480)
-        self.label_video.setStyleSheet("border: 3px solid #2c3e50; background-color: #000; border-radius: 10px;")
+        self.label_video.setStyleSheet("border: 3px solid #2c3e50; background-color: #000;")
         layout.addWidget(self.label_video, 3)
         
-        # Panel de control
         panel_ctrl = QWidget()
         panel_ctrl.setFixedWidth(320)
         layout_ctrl = QVBoxLayout(panel_ctrl)
         
-        # Grupo Ejercicio
-        grp_exe = QGroupBox("🏋️ Seleccionar Rutina")
-        lay_exe = QVBoxLayout()
         self.combo = QComboBox()
         self.combo.addItems(list(self.config_ejercicios.keys()))
         self.combo.currentTextChanged.connect(self.cambiar_ejercicio)
-        lay_exe.addWidget(self.combo)
-        grp_exe.setLayout(lay_exe)
-        layout_ctrl.addWidget(grp_exe)
+        layout_ctrl.addWidget(QLabel("🏋️ Rutina:"))
+        layout_ctrl.addWidget(self.combo)
 
-        # Grupo Progreso
-        grp_prog = QGroupBox("📊 Resultados")
-        lay_prog = QVBoxLayout()
         self.lbl_cont = QLabel("0")
         self.lbl_cont.setStyleSheet("font-size: 80px; font-weight: bold; color: #27ae60;")
         self.lbl_cont.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        lay_prog.addWidget(self.lbl_cont)
+        layout_ctrl.addWidget(self.lbl_cont)
         
         self.prog_bar = QProgressBar()
-        self.prog_bar.setRange(0, 10) # 10 reps para llenar la barra
-        lay_prog.addWidget(self.prog_bar)
-        grp_prog.setLayout(lay_prog)
-        layout_ctrl.addWidget(grp_prog)
+        layout_ctrl.addWidget(self.prog_bar)
 
-        # Feedback
         self.lbl_fase = QLabel("FASE: ESPERANDO")
-        self.lbl_fase.setStyleSheet("font-size: 18px; font-weight: bold; color: #2980b9;")
         layout_ctrl.addWidget(self.lbl_fase)
 
         btn_reset = QPushButton("🔄 Reiniciar")
         btn_reset.clicked.connect(self.reiniciar_contador)
-        btn_reset.setHeight(50)
+        btn_reset.setMinimumHeight(50)
         layout_ctrl.addWidget(btn_reset)
 
         layout_ctrl.addStretch()
@@ -124,7 +124,7 @@ class ContadorEjercicios(QMainWindow):
         if res.pose_landmarks:
             lms = res.pose_landmarks.landmark
             
-            # Seleccionar puntos según ejercicio
+            # Puntos según ejercicio
             if self.ejercicio_actual == "sentadilla":
                 ang, p1, p2, p3 = self.calcular_angulo(23, 25, 27, lms, w, h)
             elif self.ejercicio_actual == "flexion":
@@ -141,18 +141,11 @@ class ContadorEjercicios(QMainWindow):
             elif ang > u_arriba and self.etapa == "abajo":
                 self.etapa = "arriba"
                 self.contador += 1
-                self.lbl_fase.setText("FASE: ARRIBA ↑")
                 self.lbl_cont.setText(str(self.contador))
-                self.prog_bar.setValue(self.contador % 11)
+                self.prog_bar.setValue((self.contador % 11) * 10)
 
-            # Dibujar visualización en el frame
-            cv2.line(frame, p1, p2, (255, 255, 255), 3)
-            cv2.line(frame, p2, p3, (255, 255, 255), 3)
-            for p in [p1, p2, p3]:
-                cv2.circle(frame, p, 10, (46, 204, 113), -1)
-            
-            cv2.putText(frame, f"{int(ang)} deg", (p2[0]-50, p2[1]-20), 
-                        cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 0), 2)
+            # Dibujar marcas de la pose
+            mp_drawing.draw_landmarks(frame, res.pose_landmarks, mp_pose.POSE_CONNECTIONS)
 
         self.mostrar_imagen(frame)
 
@@ -164,12 +157,10 @@ class ContadorEjercicios(QMainWindow):
 
     def closeEvent(self, event):
         self.cap.release()
-        self.pose.close()
         event.accept()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setStyle("Fusion")
     win = ContadorEjercicios()
     win.show()
     sys.exit(app.exec())

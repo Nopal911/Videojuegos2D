@@ -1,0 +1,29 @@
+{
+  "0": {
+    "tipo": "texto",
+    "contenido": "Marcador 0: Texto",
+    "color": [
+      0,
+      255,
+      255
+    ]
+  },
+  "1": {
+    "tipo": "imagen",
+    "contenido": "assets/logo.png",
+    "tamanio": [
+      200,
+      200
+    ]
+  },
+  "2": {
+    "tipo": "video",
+    "contenido": "assets/video.avi",
+    "loop": true
+  },
+  "3": {
+    "tipo": "modelo_3d",
+    "contenido": "Cubo 3D",
+    "escala": 1.0
+  }
+}

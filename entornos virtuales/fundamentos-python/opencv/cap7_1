@@ -1,79 +1,99 @@
 import cv2
 import numpy as np
 import math
+import sys
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
-# 1. Configuración de Audio
-devices = AudioUtilities.GetSpeakers()
-interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-volume = cast(interface, POINTER(IAudioEndpointVolume))
-volRange = volume.GetVolumeRange() 
-minVol, maxVol = volRange[0], volRange[1]
+# --- 1. CONFIGURACIÓN DE AUDIO ---
+def iniciar_audio():
+    try:
+        # Forma estándar de obtener altavoces
+        devices = AudioUtilities.GetSpeakers()
+        if not devices:
+            return None
+            
+        # Activación de interfaz de volumen
+        interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+        volume_obj = cast(interface, POINTER(IAudioEndpointVolume))
+        return volume_obj
+    except Exception as e:
+        print(f"⚠️ Nota: Control de audio no disponible ({e})")
+        return None
 
-cap = cv2.VideoCapture(0)
+# Inicializar
+volume = iniciar_audio()
+
+if volume:
+    try:
+        volRange = volume.GetVolumeRange()
+        minVol, maxVol = volRange[0], volRange[1]
+        modo_simulado = False
+    except:
+        minVol, maxVol = -65.25, 0.0
+        modo_simulado = True
+else:
+    minVol, maxVol = -65.25, 0.0
+    modo_simulado = True
+
+# --- 2. CONFIGURACIÓN DE CÁMARA ---
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
+print("🚀 Sistema iniciado. 'q' para salir.")
 
 while True:
     ret, frame = cap.read()
     if not ret: break
-    frame = cv2.flip(frame, 1)
     
-    # 2. Detectar color piel (Espacio HSV)
+    frame = cv2.flip(frame, 1)
+    # Convertir a HSV para detectar piel
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    # Rangos para color piel claro/medio
-    bajo_piel = np.array([0, 30, 60], dtype=np.uint8)
+    
+    # Rango de color piel (ajusta si no te detecta bien)
+    bajo_piel = np.array([0, 40, 60], dtype=np.uint8)
     alta_piel = np.array([20, 150, 255], dtype=np.uint8)
     
     mascara = cv2.inRange(hsv, bajo_piel, alta_piel)
-    mascara = cv2.medianBlur(mascara, 7) # Limpiar puntos falsos
+    mascara = cv2.medianBlur(mascara, 7)
     
-    # 3. Encontrar el contorno de la mano
     contornos, _ = cv2.findContours(mascara, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
     if contornos:
-        # El contorno más grande es la mano
         cnt = max(contornos, key=cv2.contourArea)
-        
         if cv2.contourArea(cnt) > 5000:
-            # Encontrar el rectángulo que encierra la mano
-            x, y, w, h = cv2.boundingRect(cnt)
-            
-            # Centro de la mano (momento de masa)
             M = cv2.moments(cnt)
             if M["m00"] != 0:
                 cx = int(M["m10"] / M["m00"])
                 cy = int(M["m01"] / M["m00"])
                 
-                # Punta del dedo (punto más alto del contorno)
+                # Punto más alto (punta del dedo)
                 punta = tuple(cnt[cnt[:, :, 1].argmin()][0])
-                
-                # 4. Calcular distancia y mapear a volumen
                 distancia = math.hypot(punta[0] - cx, punta[1] - cy)
                 
-                # Normalización (Ajusta 60 y 180 según tu mano)
+                # Mapeo a volumen (ajusta 60-180 según el tamaño de tu mano)
                 volPer = np.interp(distancia, [60, 180], [0, 100])
                 vol_final = np.interp(volPer, [0, 100], [minVol, maxVol])
                 
-                volume.SetMasterVolumeLevel(vol_final, None)
+                if not modo_simulado:
+                    try:
+                        volume.SetMasterVolumeLevel(vol_final, None)
+                    except: pass
                 
-                # --- Dibujo ---
+                # Dibujo
                 cv2.circle(frame, (cx, cy), 7, (255, 0, 0), -1) # Centro
-                cv2.circle(frame, punta, 10, (0, 0, 255), -1)   # Punta dedo
+                cv2.circle(frame, punta, 10, (0, 0, 255), -1)   # Punta
                 cv2.line(frame, (cx, cy), punta, (0, 255, 0), 2)
                 
-                # Barra visual
-                cv2.rectangle(frame, (50, 150), (85, 400), (0, 255, 0), 3)
+                # Barra de UI
+                cv2.rectangle(frame, (50, 150), (85, 400), (255, 255, 255), 3)
                 vol_bar = np.interp(volPer, [0, 100], [400, 150])
                 cv2.rectangle(frame, (50, int(vol_bar)), (85, 400), (0, 255, 0), cv2.FILLED)
                 cv2.putText(frame, f"{int(volPer)}%", (45, 440), 
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-    cv2.imshow('Control de Volumen (Sin MediaPipe)', frame)
-    # cv2.imshow('Mascara', mascara) # Descomenta para ver qué detecta la cámara
-    
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    cv2.imshow('Control de Volumen - UTNG', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'): break
 
 cap.release()
 cv2.destroyAllWindows()
